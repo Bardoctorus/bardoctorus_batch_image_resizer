@@ -53,11 +53,11 @@ y = {'yes', 'y', 'ye'}
 n = {'no', 'n'}
 
 
-dirPath = sys.argv[1]
+dirPath = sys.argv[1]  #  python fim.py PATHTODIR 670
 newWidth = sys.argv[2]
 newFol = dirPath+"\\"+"batch_resized_images"
 keepOn = confirm()
-
+# keepon is pointless i think
 
 
 if keepOn and not os.path.exists(newFol):
@@ -87,6 +87,11 @@ for img in glob.glob(dirPath+"\\*.png"):
 	except IOError:
 		print("cannot resize ", img)
 
+
+
+
+""" This doesn't work but argparser will make it work
+
 if sys.argv[3]:
 	for img in glob.glob(dirPath+"\\*."+sys.argv[3]):
 	
@@ -96,3 +101,5 @@ if sys.argv[3]:
 			resizer(changeIm,newWidth , img)
 		except IOError:
 			print("cannot resize ", img)
+
+"""
