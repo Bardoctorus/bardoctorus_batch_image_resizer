@@ -1,0 +1,18 @@
+Ratio maths :  adjusted height = <user-chosen width> * original height / original width.
+
+
+
+main (argfile,argwidth):
+    for picture in argfile:
+        get dimensions
+        send dimension and argwidth to sizer
+        make new file with extension
+                
+        
+    
+
+sizer(height, width, newWidth):
+
+    newHeight = newWidth * height/width
+
+    
