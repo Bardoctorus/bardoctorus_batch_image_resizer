@@ -14,5 +14,4 @@ So far this is WYSIWYG, I take no responsibility if it deletes your bank or eats
 # how_to_use_it
 For a simple example, clone the ting, install pillow, run it in the terminal, follow the on screen instructions. I've included a cat to practice on.
 
-https://github.com/Bardoctorus/batch_image_sizer/blob/master/ket.png
-
+![ketteh](https://github.com/Bardoctorus/bardoctorus_batch_image_resizer/blob/master/fet.png)
