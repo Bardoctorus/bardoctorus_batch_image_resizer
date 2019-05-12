@@ -7,7 +7,8 @@ Use Python 3.6.7, because it's untested on anything that isn't my Linux laptop a
 
 Nope. Y?
 
-Requires <a hred="https://pillow.readthedocs.io/en/stable/index.html">Pillow</a> to work 
+Requires <a href="https://pillow.readthedocs.io/en/stable/index.html">Pillow</a> to work 
+
 
 So far this is WYSIWYG, I take no responsibility if it deletes your bank or eats your cat.
 
