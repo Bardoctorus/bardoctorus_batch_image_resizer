@@ -1,5 +1,9 @@
 from PIL import Image
-import os, sys
+import os, sys, glob
+
+from os import listdir
+from os.path import isfile, join
+
 
 #  main should check everything is ok then do stuff
 def main(folder, newWidth):
@@ -20,13 +24,33 @@ def main(folder, newWidth):
 
     
 
+    onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
+    print(onlyfiles)
+
+    for file in onlyfiles:
+        file_checker(file,newWidth)
 
 
+def file_checker(file, newWidth):
+    try:
+        f = Image.open(file)
+        if (f.size > newWidth):
+            makeBigga(f)
+        elif (f.size < newWidth):
+            makeSmol(f)
+        else:
+            print("Image already correct width - moving on")
+            return
+    except:
+        print("Couldn't open file: "+file+" - moving on")    
+        return
+    
 
-def makeBigga():
+
+def makeBigga(file):
     print("this is big time")
 
-def makeSmol():
+def makeSmol(file):
     print("squashy squashy")    
 
 def saveTing():
