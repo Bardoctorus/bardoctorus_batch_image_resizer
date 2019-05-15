@@ -27,6 +27,7 @@ def main(folder, newWidth):
     onlyfiles = [f for f in listdir(folder) if isfile(join(folder, f))]
     #print(type(onlyfiles[0]))
     succesful_conversions = []
+    fails = 0
     for file in onlyfiles:
         joined_name = os.path.join(folder, file)
         print("Attempting to open "+joined_name)
@@ -34,7 +35,8 @@ def main(folder, newWidth):
             f =  Image.open(joined_name)
 
         except IOError:
-            print("Error opening "+file+", moving on")
+            print("X   -   - Error opening "+file+", moving on")
+            fails += 1
             continue
         else:
             
@@ -44,15 +46,19 @@ def main(folder, newWidth):
             # deets = {"new height": newHeight,
             #      "new Size": newSize,
             #      "new file name": newFileName  }
-            # print(deets)  
+            # print(deets)
+            if (f.size[0] == 670):
+                print("Image already correct width - moving on")
+                continue  
             g = resizer(f, newSize)
+            
             g.save(newFileName)
             succesful_conversions.append(newFileName)
-            #print("Created: "+newFileName)
+            print("-   O   - Created: "+newFileName)
     print(".\n.\n.\n.\nDone! Created:\n")
     for thing in succesful_conversions:
         print (thing)
-
+    print("\n\nWith "+str(fails)+" fails (probably not images)")
     
     
 def resizer(imData, newSize):
@@ -66,9 +72,10 @@ def resizer(imData, newSize):
         #     g = makeBigga(f, newSize)
             
         #     g.save(newName)
-        # else:
-        #     print("Image already correct width - moving on")
-        #     return
+    # if(imData.size[0] == 670):
+    #     print("Image already correct width - moving on")
+    #     return
+
     g = imData.resize((newSize),Image.LANCZOS)
     return g
 
